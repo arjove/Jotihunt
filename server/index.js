@@ -35,7 +35,7 @@ const {
 const io = new Server(server, {
   port: 3000,
   cors: {
-    origin: ['https://jotihunt.scouting-ijsselgroep.nl'],
+    origin: ['https://jh2023.scoutingbemmel.nl'],
   }
 });
 

@@ -20,7 +20,7 @@ services:
       timeout: 5s
       retries: 20
   jotihunt:
-    image: tristandb/jotihunt:latest
+    image: arjove/jotihunt:latest
     env_file:
       - .env
     ports:
@@ -31,7 +31,7 @@ services:
       - jotihunt
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.jotihunt.rule=Host(`jotihunt.scouting-ijsselgroep.nl`)"
+      - "traefik.http.routers.jotihunt.rule=Host(`jh2023.scoutingbemmel.nl`)"
       - "traefik.http.routers.jotihunt.entrypoints=websecure"
       - "traefik.http.services.jotihunt-service.loadbalancer.server.port=3000"
       - "traefik.http.routers.jotihunt.tls.certresolver=myresolver"
