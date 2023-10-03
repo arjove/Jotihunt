@@ -38,6 +38,7 @@ services:
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
     depends_on:
       - "db"
+    
   divinity:
     image: tristandb/divinity:latest
     container_name: divinity
@@ -45,7 +46,7 @@ services:
     environment:
       - GOOGLE_SERVER_AUTH_TOKEN
       - GOOGLE_CLIENT_AUTH_TOKEN
-      - JOTIHUNT_HOST=http://jotihunt:3000
+      - JOTIHUNT_HOST=http://localhost:3000
     networks:
       - jotihunt
     depends_on:
