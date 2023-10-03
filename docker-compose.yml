@@ -28,7 +28,7 @@ services:
       retries: 20
 
   jotihunt:
-    image: ghcr.io/arjove/jotihunt:latest
+    image: avelderman/jotihunt:latest
     build:
       context: '.'
       target: 'development'
@@ -48,7 +48,7 @@ services:
       db:
         condition: service_healthy
   # clairvoyance:
-  #   image: ghcr.io/arjove/jotihunt-clairvoyance:latest
+  #   image: avelderman/jotihunt-clairvoyance:latest
   #   restart: always
   #   environment:
   #     - AUTH0_CLIENT_ID
@@ -64,7 +64,7 @@ services:
   #   labels:
   #     - traefik.enable = false
   # divinity:
-  #   image: ghcr.io/arjove/jotihunt-divinity:latest
+  #   image: avelderman/jotihunt-divinity:latest
   #   restart: always
   #   environment:
   #     - AUTH0_CLIENT_ID

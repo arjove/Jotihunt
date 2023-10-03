@@ -20,7 +20,7 @@ services:
       timeout: 5s
       retries: 20
   jotihunt:
-    image: arjove/jotihunt:latest
+    image: avelderman/jotihunt:latest
     env_file:
       - .env
     ports:
