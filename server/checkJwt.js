@@ -13,12 +13,12 @@ const checkJwt = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: 'https://sbjotihunt.eu.auth0.com/.well-known/jwks.json',
+    jwksUri: 'https://sbjotihunt.nl/auth0/.well-known/jwks.json',
   }),
 
   // Validate the audience and the issuer.
-  aud: 'https://sbjotihunt.eu.auth0.com/api/v2/',
-  issuer: 'https://sbjotihunt.eu.auth0.com/',
+  aud: 'https://sbjotihunt.nl/auth0/api/v2/',
+  issuer: 'https://sbjotihunt.nl/auth0/',
   algorithms: ['RS256'],
 });
 
