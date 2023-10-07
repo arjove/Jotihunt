@@ -5,17 +5,13 @@
 */
 
 import React from 'react';
-import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from 'react-router';
-
+import Cookies from 'js-cookie';
 // import styled from 'styled-components';
-
-
 class NavBarMenu extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { isAuthenticated } = useAuth0();
-    
-    if (isAuthenticated) {
+    const user = !undefined(Cookies.get('sbUser'));
+    if (user) {
       // When logged in
       return (
         <ul className="nav navbar-nav">

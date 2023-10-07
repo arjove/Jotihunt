@@ -14,6 +14,7 @@ import NavBarMenu from 'components/NavBarMenu';
 import Img from './Img';
 import NavBar from './NavBar';
 import logo from './headonly.svg';
+import Cookies from 'js-cookie';
 let toggle = false;
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -29,8 +30,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
 
 
   render() {
-    const { user, loginWithRedirect, isAuthenticated } = useAuth0();
-
+    const user = !undefined(Cookies.get('sbUser'));
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container">
@@ -48,7 +48,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <NavBarMenu />
-              {isAuthenticated && <LocationManager sendCoordinates={this.props.sendCoordinates} />}
+            {user && <LocationManager sendCoordinates={this.props.sendCoordinates} />}
             <NavbarLogin />
           </div>
         </div>

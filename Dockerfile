@@ -12,12 +12,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends libpng-dev pyth
 
 WORKDIR /reactapp
 
-COPY package*.json ./
-RUN npm install
-
 COPY . .
 
-VOLUME /reactapp
+COPY package*.json ./
+
+RUN npm install
+
+#VOLUME /reactapp
 
 EXPOSE 3000
 

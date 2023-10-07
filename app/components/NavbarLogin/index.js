@@ -5,13 +5,12 @@
 */
 
 import React from 'react';
-
-
+import Cookies from 'js-cookie';
+// import styled from 'styled-components';
 class NavbarLogin extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { user, loginWithRedirect, isAuthenticated } = useAuth0();
-  
-    if (!isAuthenticated) {
+    const user = !undefined(Cookies.get('sbUser'));
+    if (!user) {
       return (
         <ul className="nav navbar-nav navbar-right">
           <li className="pull-right"><a onClick={() => loginWithRedirect()}>Login <i className="fa fa-lock" /></a></li>
