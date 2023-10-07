@@ -36,6 +36,14 @@ services:
       - "traefik.http.services.jotihunt-service.loadbalancer.server.port=3000"
       - "traefik.http.routers.jotihunt.tls.certresolver=myresolver"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+      - "traefik.http.routers.auth0.rule=Host(`sbjotihunt.nl`) && PathPrefix(`/auth0`)"
+      - "traefik.http.routers.auth0.entrypoints=web"
+      - "traefik.http.middlewares.auth0-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.auth0-redirect.redirectscheme.permanent=true"
+      - "traefik.http.middlewares.auth0-redirect.redirectscheme.port=443"
+      - "traefik.http.middlewares.auth0-redirect.redirectregex.regex=^/auth0/(.*)"
+      - "traefik.http.middlewares.auth0-redirect.redirectregex.replacement=https://sbjotihunt.eu.auth0.com/$$1"
+      - "traefik.http.routers.auth0.middlewares=auth0-redirect"
     depends_on:
       - "db"
     
