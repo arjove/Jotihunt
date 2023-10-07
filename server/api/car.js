@@ -65,7 +65,7 @@ router.post('/', (req, res) => {
 
 router.post('/weblocation', checkJwt, (req, res) => {
   const auth0 = new ManagementClient({
-    domain: 'sbjotihunt.nl/auth0',
+    domain: 'sbjotihunt.eu.auth0.com',
     clientId: 'olLBhqSI0YCP34s2Nf8uVH75xnbD5flI',
     clientSecret: 'eWMoCgINnC_K-euXPUUoMXmItwSFjxlkvTjRDdUjBrbci-oL1e8wfvTRG_0si6LT',
     scope: 'read:users read:user_idp_tokens'
