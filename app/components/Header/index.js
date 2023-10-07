@@ -4,15 +4,17 @@
 *
 */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import NavbarLogin from 'components/NavbarLogin';
 import LocationManager from 'components/LocationManager';
 import NavBarMenu from 'components/NavBarMenu';
-import { removeToken, loggedIn, loggedOut } from 'containers/Viewer/lib';
 
 import Img from './Img';
 import NavBar from './NavBar';
 import logo from './headonly.svg';
+import Cookies from 'js-cookie';
 let toggle = false;
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -28,6 +30,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
 
 
   render() {
+    const user = Cookies.get('sbUser') !== undefined;
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container">
@@ -45,7 +48,7 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <NavBarMenu />
-            {loggedIn() && <LocationManager sendCoordinates={this.props.sendCoordinates} />}
+            {user && <LocationManager sendCoordinates={this.props.sendCoordinates} />}
             <NavbarLogin />
           </div>
         </div>

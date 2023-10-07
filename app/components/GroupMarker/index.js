@@ -33,10 +33,10 @@ class GroupMarker extends React.Component { // eslint-disable-line react/prefer-
   render() {
     const group = this.props.group;
     return (
-      <Marker icon={groupIcon} position={{ lat: group.latitude, lng: group.longitude}} onClick={this.onToggleOpen}>
+      <Marker icon={groupIcon} position={{ lat: group.latitude, lng: group.longitude }} onClick={this.onToggleOpen}>
         {group.isOpen && <InfoWindow onCloseClick={this.onToggleOpen}>
           <div>
-            <b>{group.name}</b><br/>
+            <b>{group.name}</b><br />
             <span dangerouslySetInnerHTML={{ __html: group.location }} /><br /><br />
             <b>Selecteer deelgebied</b><br />
             <Form defaultValues={{ subarea: group.Subarea ? group.Subarea.name : '' }}>
@@ -46,35 +46,35 @@ class GroupMarker extends React.Component { // eslint-disable-line react/prefer-
                 field='subarea'
                 onChange={(evt) => this.props.changeSubarea(evt, group.id)}
                 options={[
-                {
-                  label: 'Alpha',
-                  value: 'Alpha',
-                  key: 0
-                }, {
-                  label: 'Bravo',
-                  value: 'Bravo',
-                  key: 1
-                }, {
-                  label: 'Charlie',
-                  value: 'Charlie',
-                  key: 2
-                }, {
-                  label: 'Delta',
-                  value: 'Delta',
-                  key: 3
-                }, {
-                  label: 'Echo',
-                  value: 'Echo',
-                  key: 4
-                }, {
-                  label: 'Foxtrot',
-                  value: 'Foxtrot',
-                  key: 5
-                }, {
-                  label: 'n.n.b.',
-                  value: 'n.n.b.',
-                  key: 6
-                }]}
+                  {
+                    label: 'Alpha',
+                    value: 'Alpha',
+                    key: 0,
+                  }, {
+                    label: 'Bravo',
+                    value: 'Bravo',
+                    key: 1,
+                  }, {
+                    label: 'Charlie',
+                    value: 'Charlie',
+                    key: 2,
+                  }, {
+                    label: 'Delta',
+                    value: 'Delta',
+                    key: 3,
+                  }, {
+                    label: 'Echo',
+                    value: 'Echo',
+                    key: 4,
+                  }, {
+                    label: 'Foxtrot',
+                    value: 'Foxtrot',
+                    key: 5,
+                  }, {
+                    label: 'n.n.b.',
+                    value: 'n.n.b.',
+                    key: 6,
+                  }]}
               />
             </Form>
 

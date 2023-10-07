@@ -5,16 +5,13 @@
 */
 
 import React from 'react';
-import { removeToken, loggedIn, loggedOut } from 'containers/Viewer/lib';
-import { createAndShow } from 'containers/Login/lib';
 import { Link } from 'react-router';
-
+import Cookies from 'js-cookie';
 // import styled from 'styled-components';
-
-
 class NavBarMenu extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    if (loggedIn()) {
+    const user = Cookies.get('sbUser') !== undefined;
+    if (user) {
       // When logged in
       return (
         <ul className="nav navbar-nav">
@@ -24,7 +21,6 @@ class NavBarMenu extends React.Component { // eslint-disable-line react/prefer-s
           <li><Link to="/group/list">Groepen <i className="fa fa-list" aria-hidden="true"></i> </Link></li>
           <li><Link to="/map">Kaart <i className="fa fa-map" aria-hidden="true"></i> </Link></li>
           <li><Link to="/messages">Berichten</Link></li>
-          {/* <li><Link to="/clairvoyance">Clairvoyance <i className="fa fa-eye" aria-hidden="true"></i> </Link></li> */}
         </ul>
       );
     }
